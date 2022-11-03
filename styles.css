@@ -1,0 +1,951 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*font-family: 'Montserrat', sans-serif;*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 64px;
+  color: #222;
+}
+
+h2 {
+  font-size: 46px;
+  line-height: 54px;
+  color: #222;
+}
+
+h3 {
+  padding-top: 15px;
+  font-size: 30px;
+  color: #818ea0;
+}
+
+h4 {
+  font-size: 20px;
+  color: rgb(229, 56, 56);
+}
+
+h6 {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+p {
+  font-size: 16px;
+  color: #465b52; 
+  margin: 25px 0px 20px 0px;
+}
+
+.section-m1 {
+  margin: 40px 0;
+}
+
+/* .section-p1 {
+  padding: 40px 80px;
+} we already wrote it */
+
+/*global styling for button*/
+/*'button.normal' and 'button .normal' are different*/
+button.normal , button.login-btn {
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s ease;
+  border-radius: 4px;  
+}
+
+button.normal {
+  color: #000;
+  background-color: #fff;
+  padding: 15px 30px;
+}
+
+ button.login-btn {
+  font-size: 16px;
+  background-color:#088178; 
+  color: #fff; 
+  padding: 9px 15px;
+} 
+
+button.login-btn:hover {
+  color: #fff;
+  background-color: #232836;
+}
+
+body {
+width: 100%;
+}
+
+/* Header Start */
+/* ------ NavBar  --------*/
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px; /*(top &bottom) (left&right)*/
+  background-color: #f3f2f0; /*#e8c6e1*/  /*#E3E6F3*/
+  box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+  z-index: 999; /*The z-index property specifies the stack order of an element.*/
+  position: sticky;
+  top: 0;
+  left: 0; 
+  /*above 3 lines make navbar sticky*/
+
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar li {
+  list-style: none;
+  padding: 0 20px;
+  position: relative; /*parent of .navbar li a.active ie:to make child(absoulte) visible we need to make parent relative*/
+}
+
+.navbar li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: 0.3s ease; /*we made hover transition smooth */
+}
+
+.navbar li a:hover, .navbar li a.active {
+  color: #088178; /*this means that when in Home page,the 'Home' link will hover */
+}
+
+/*using pseudo class i.e:before and after  - to make the underline effect*/
+/*used .navbar li a:hover::after to make hover effect for other links in navbar*/
+.navbar li a.active::after, .navbar li a:hover::after {
+  content: "";
+  width: 30%;
+  height: 2px;
+  background-color: #088178;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+/* Home Page */
+/* ------ Hero Section  --------*/
+.hero{
+  background-image: url("./images/hero4.png");
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+  background-position: top 25% right 0;
+  /*to position text in screen*/
+  padding: 0 80px;
+  /*now we want to position text individually ie:using:
+  display: flex;
+  align-items: center;
+  justify-items: center; */
+  display: flex; /*by default aligns items by row so we use flex direction: column to align items column wise*/
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.hero h4 {
+  font-size: 12px;
+  padding-bottom: 5px;
+  letter-spacing: 4px;
+  color: #e53838;
+}
+
+.hero h2 {
+  font-weight: 500;
+}
+
+.hero h1 {
+  color: #ff5200; /* #74bbf4 */
+  font-weight: bolder;
+}
+
+p {
+  font-weight: 500;
+  line-height: 1.6rem;
+}
+
+.hero button {
+  background-image: url("images/button.png");
+  background-color: transparent; /*makes the area in the button transparent i.e:if u comment this there will be white stuff in the button*/
+  color: #e53838;
+  border: 0;
+  padding: 14px 80px 14px 65px; /*top-left-bottom-right*/
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+
+}
+
+/*------Section 1 - Features -------*/
+.section-p1 {
+  padding: 40px 80px;
+  /* background-color: rgb(223, 218, 212); */
+}
+
+/*initially we applyed css to single feature, now we just copy the code to other features
+now to make the elements side-by-side we use flex on 'feature'*/
+#feature{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;/* This property is used to break the flex item into multiples lines. It makes flex items wrap to multiple lines according to flex item width. */
+}
+
+/*we made seperate class for text because in order for text and items to be in different line with flex, we made box size of text area 100% so the next box will have no place hence goes to the second row*/
+/*note to self we added the heading at the end ie once the feature page was done*/
+#feature .text {
+  width: 100%;
+  text-align: center;
+}
+
+#feature .fe-box {
+  width: 180px;
+  text-align: center;
+  padding: 25px 15px;
+  box-shadow: 20px 20px 34px rgba(0,0,0,0.03) ; /**x-axis|y-axis|radius(range)|rgba(color)*/
+  border: 1px solid  #cce7d0;
+  border-radius: 4px;
+  margin: 15px 0; /*t&b l&r*/
+  /*margin is gap outside element whereas padding is the gap present in the element*/
+}
+
+#feature .fe-box:hover{
+  box-shadow: 10px 10px 54px rgba(70,62,221,0.1) ; 
+}
+
+#feature .fe-box img /* This also makes image resposive ie:width 100% */ {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#feature .fe-box h6 {
+  padding: 9px 8px 6px 8px;
+  line-height: 1; /*optional*/
+  border-radius: 4px;
+  color: #088178;
+  background-color: #DBF4F6 ;
+  display: inline-block; /*sets padding around item evenly ie:border box*/
+}
+
+#feature .fe-box:nth-child(2) h6 {
+  background-color: #F5DBEA ;
+}
+
+#feature .fe-box:nth-child(3) h6 {
+  background-color: #EAF5D8 ;
+}
+
+#feature .fe-box:nth-child(4) h6 {
+  background-color: #DBEBF6 ;
+}
+
+#feature .fe-box:nth-child(5) h6 {
+  background-color: #E3DDF4 ;
+}
+
+#feature .fe-box:nth-child(6) h6 {
+  background-color:  #F6E5DB;
+}
+
+/*----Products Part------*/
+#product1 {
+  text-align: center;
+}
+
+#product1 .prod {
+  width: 23%;
+  min-width: 250px;
+  padding: 10px 12px;
+  border: 1px solid #cce7d0;/*#cce7d0 */
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 20px 20px 30px rgba(0,0,0,0.02) ;
+  margin: 15px 0;
+  transition: 0.2s ease;
+  position: relative; /*cuz child (#product1 .prod .cart) position is absolut thus parent's position should be relative*/
+}
+
+#product1 .prod:hover {
+  box-shadow: 20px 20px 30px rgba(0,0,0,0.06) ;
+}
+
+#product1 .prod img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+#product1 .prod .description {
+  text-align: start;
+  padding: 10px 0;
+
+}
+
+#product1 .prod .description span {
+  color: #606063;
+  font-size: 12px;
+}
+
+#product1 .prod .description h5 {
+  padding-top: 7px;
+  color: #1a1a1a;
+  font-size: 14px;
+}
+
+#product1 .prod .description i {
+  font-size: 12px;
+  color: rgb(243, 181,25);
+}
+
+#product1 .prod .description h4 {
+  padding-top: 7px;
+  font-size: 15px;
+  font-weight: 700px;
+  color: #74bbf4;
+}
+
+#product1 .prod .cart {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: #e8f6ea;
+  font-weight: 500;
+  color: #088178;
+  border: 1px solid #cce7d0;
+  position: absolute; /*every time we use absolute in child element we must make parent position as relative else it wont work
+  Thus, make '#product1 .prod' as position:relative*/
+  bottom: 20px;
+  right: 10px;
+}
+
+/*aligning all product elements using flex*/
+#product1 .prod-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  /*we want multi-line flex thus we use flex-wrap:wrap i.e:prevents horizontal scrolling*/
+  flex-wrap: wrap;
+}
+
+/*-----Banner------*/
+#banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("images/banners/b2.jpg");
+  width: 100%;
+  height: 40vh;
+  background-size: cover;
+  background-position: center;
+}
+
+#banner h4 {
+  color: #fff;
+  font-size: 16px;
+}
+
+#banner h2 {
+  color: #fff;
+  font-size: 30px;
+  padding: 10px 0;
+}
+
+#banner h2 span {
+  color: #e53838;
+}
+
+/*note global styling for button on top ie:  button.normal */
+#banner button:hover {
+  background-color: #74bbf4;
+  color: #fff;
+}
+
+/* ------- More Banners i.e:deals and offers stuff--------*/
+
+/*FIRST ROW BANNERS (2 BANNERS)*/
+#sm-banner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#sm-banner .banner-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-image: url("./images/banners/b17.jpg");
+  min-width: 48%; /* 48% */
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  padding: 30px; /*means ffrom all sides 30px*/
+}
+
+#sm-banner h4 {
+  color: rgb(244, 238, 238);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#sm-banner h2 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+#sm-banner span {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+
+#sm-banner button {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 18px;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid #fff;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+#sm-banner .banner-box:hover button {
+  background-color: #088178;
+  border: 1px solid #088178;
+}
+
+#sm-banner .banner-box2 {
+  background-image: url("images/banners/b10.jpg");
+}
+
+/*2ND ROW BANNERS (3 BANNERS)*/
+#banner3 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 80px;
+}
+
+#banner3 .banner-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-image: url("./images/banners/b7.jpg");
+  min-width: 30%;
+  height: 30vh;
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#banner3 h2 {
+  color: #fff;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+#banner3 h3 {
+  color: #edb3b3;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+#banner3 .banner-box2 {
+  background-image: url("images/banners/b4.jpg");
+}
+
+#banner3 .banner-box3 {
+  background-image: url("images/banners/b18.jpg");
+}
+
+/*------- NEWSLETTER SECTION --------*/
+#newsletter {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  background-image: url("images/banners/b14.png");
+  background-repeat: no-repeat;
+  background-position: 20% 30%;
+  background-color: #041e42;
+}
+
+#newsletter h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+#newsletter p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #818ea0;
+}
+
+#newsletter  p span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffbd27;
+}
+
+#newsletter .form {
+  display: flex;
+  width: 40%;
+}/*makes button and input box same row*/
+
+#newsletter input {
+  height: 3.125rem;
+  padding: 0 1.25em;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#newsletter button {
+  background-color: #088178;
+  color: #fff;
+  white-space: nowrap;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#newsletter button:hover {
+  background-color: #0b9b92;
+}
+
+/*-------- FOOTER SECTION  ----------*/
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #f3f2f0; /* #dcf3e7; */
+}
+
+footer .col{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+
+footer .logo {
+  margin-bottom: 30px ;
+}
+
+
+footer h4 {
+  font-size: 14px;
+  padding-bottom: 20px;
+  color: #041e42
+}
+
+footer p {
+  font-size: 13px;
+  margin: 0 0 8px 0; /*t r b l*/
+}
+
+footer a {
+  font-size: 13px;
+  text-decoration: none;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+footer .follow {
+  margin-top: 20px ;
+}
+
+footer .follow i {
+  color: #465b52;
+  padding-right: 4px; /* or: letter-spacing: 4px; */
+  cursor: pointer;
+}
+
+/*for images only in row class*/
+footer .install .row img {
+  border: 1px solid #465b52;
+  border-radius: 6px;
+} 
+
+/*for images in install class ie: all*/
+footer .install img {
+  margin: 10px 0 15px 0; /*t r b l*/
+}
+
+footer .follow i:hover, footer a:hover {
+  color: #088178;
+}
+
+footer .copyright {
+  width: 100%; /*width is 100% cuz we made all items in footer flex-wrap: wrap thus to make copyright line in new line we made it 100%box (can't be in same line as other items as width is 100% thus goes to next line) */
+  text-align: center;
+}
+
+
+/* ========== SHOP PAGE =============*/
+
+/* ------------ page-header section ---------------*/
+.page-header {
+  background-image: url("images/banners/b1.jpg");
+  width: 100%;
+  height: 40vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 14px;
+}
+
+.page-header h2,
+.page-header p {
+  color: #fff;
+}
+
+/* ------- in product page pagintaion part --------*/
+#pagination {
+  text-align: center;
+}
+
+#pagination a {
+  text-decoration: none;
+  background-color: #f098df;
+  padding: 15px 20px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+}
+
+#pagination a i {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ------ Single product page -------*/
+#prodetails {
+  display: flex; /*making text and image div's side by side*/
+  margin-top: 20px;
+}
+
+/*image part*/
+#prodetails .single-pro-image {
+  width: 40%;
+  margin-right: 50px;
+}
+
+.small-img-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.small-img-col {
+  flex-basis: 24%; /* The flex-basis property specifies the initial length of a flexible item. */
+  cursor: pointer;
+}
+
+/*text part*/
+#prodetails .single-pro-details {
+  width: 50%;
+  padding-top: 30px;
+}
+
+#prodetails .single-pro-details h4 {
+  padding: 40px 0 20px 0; /*T R B L*/
+}
+
+#prodetails .single-pro-details h2 {
+  font-size: 26px;
+}
+
+#prodetails .single-pro-details select {
+  display: block;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+#prodetails .single-pro-details input {
+  width: 50px;
+  height: 47px;
+  padding-left: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/*removes outline when pressed*/
+#prodetails .single-pro-details input:focus {
+  outline: none;
+}
+
+#prodetails .single-pro-details button {
+  background-color: #0b9b92;
+  color: #fff;
+  outline: none;
+}
+
+#prodetails .single-pro-details button:hover {
+  background-color: #088178;
+}
+
+#prodetails .single-pro-details span {
+  line-height: 25px;
+}
+
+/* =========== BLOG PAGE ===========*/
+/*#page-header .blog-header(wrong)*/
+.page-header.blog-header {
+  background-image: url("images/banners/b19.jpg");
+}
+
+#blog {
+  padding: 150px 150px 0 150px; /*t r b l*/
+}
+
+#blog .blog-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative; /*#blog .blog-box h1 (child) is absoulte*/
+  padding-bottom: 90px; /*make space after each blog*/
+}
+
+#blog .blog-img {
+  width: 50%;
+  margin-right: 40px;
+}
+
+#blog img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+#blog .blog-details {
+  width: 50%;
+}
+
+#blog .blog-details a {
+  text-decoration: none;
+  font-size: 11px;
+  color: #000;
+  font-weight: 700;
+  position: relative;
+  transition: 0.3s;
+}
+
+/*making pseudo element (the line after continue reading) */
+#blog .blog-details a::after {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background-color: #000;
+  position:absolute; /*child:absolute thus parent should be relative ie:#blog .blog-details a*/
+  top: 4px;
+  right: -60px;
+}
+
+#blog .blog-details a:hover {
+  color: #088178;
+}
+
+#blog .blog-details a:hover::after {
+  background-color: #088178;
+}
+
+#blog .blog-box h1 {
+  position: absolute; /*make its parent relative ie:.blog-box*/
+  top: -40px;
+  left: 0;
+  font-size: 70px;
+  font-family: 700;
+  color: #c9cbca;
+  z-index: -9; /*to place element behing another element*/
+}
+
+/* =========== ABOUT PAGE ===========*/
+.page-header.about-header {
+  background-image: url("./images/about/banner.png");
+}
+
+#about-head {
+  display: flex;
+  align-items: center;
+}
+
+#about-head img {
+  width: 50%;
+  height: auto;
+}
+
+#about-head div {
+  padding-left: 40px;
+}
+
+#about-app {
+  text-align: center;
+}
+
+#about-app .video{
+  width: 70%;
+  height: 100%;
+  margin: 30px auto 0 auto; /*t l b r*/
+}
+
+/*targets video tag in video class*/
+#about-app .video video{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+/* =========== CONTACT PAGE ===========*/
+#contact-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#contact-details .details {
+  width: 40%; /*means text part only takes 40% not map part*/
+}
+
+#contact-details .details span {
+  font-size: 12px;
+}
+
+#contact-details .details h2 {
+  font-size: 26px;
+  line-height: 35px;
+  padding:20px 0; /*t&b l&r*/
+}
+
+#contact-details .details h3 {
+  font-size: 16px;
+  padding-bottom: 15px;
+}
+
+#contact-details .details li {
+  list-style: none;
+  display: flex; /*aligns text and symbols in same line*/
+  padding: 10px 0;
+}
+
+#contact-details .details li i{
+  font-size: 15px;
+  padding-right: 22px;
+}
+
+#contact-details .details li p {
+  margin: 0;
+  font-size: 14px;
+}
+
+
+#contact-details .map {
+  width: 55%;
+  height: 400px;
+}
+
+#contact-details .map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/*making form*/
+#form-details {
+  /*aligns form part and people part side-by-side*/
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+  padding: 80px;
+  border: 1px solid #e1e1e1;
+
+}
+
+#form-details form {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+}
+
+#form-details form span {
+  font-size: 12px;
+}
+
+#form-details form h2 {
+  font-size: 26px;
+  line-height: 35px;
+  padding:20px 0; /*t&b l&r*/
+}
+
+#form-details form input, #form-details form textarea{
+  width: 100%;
+  padding: 12px 15px;
+  outline: none;
+  border: 1px solid #e1e1e1;
+  margin-bottom: 20px;
+}
+
+#form-details form button {
+  background-color: #088178;
+  color: #fff;
+}
+
+/*people part*/
+#form-details .people div {
+  padding-bottom: 25px ;
+  /*making image and details part side-by-side (bottom 2 lines) */
+  display: flex;
+  align-items: flex-start;
+}
+
+#form-details .people div img {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+#form-details .people div p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 24px;
+}
+
+#form-details .people div p span {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
